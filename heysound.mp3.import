@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/heysound.mp3-0529af05d047c73d96d2c2d4de76b6e6.mp3str"
+
+[deps]
+
+source_file="res://heysound.mp3"
+dest_files=[ "res://.import/heysound.mp3-0529af05d047c73d96d2c2d4de76b6e6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

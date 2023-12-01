@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Mystery Font (2).ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://backstory.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_bottom = 22
+extra_spacing_space = 14
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/RichTextLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -657 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "play"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/RichTextLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 289 ), Vector2( 0, -600 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "callit"
+} ]
+}
+
+[node name="backstory" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 512, 288 )
+theme = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+margin_top = -657.0
+margin_right = 511.0
+margin_bottom = 241.973
+theme = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=yellow] 
+Long ago a FAT brit 
+named Rupert Kringleton
+lived in a bad 
+orphanage 
+in a bad 
+neighborhood.  
+
+He decided to buy 
+his orphanage
+and save all the 
+children.
+
+But the only way 
+to make money
+was to commit crimes.
+
+Play our truly 
+tragic game.
+
+WASD to move, 
+click to punch,
+[E] key to interact,
+mouse to look around
+
+Collect enough cash
+to buy your freedom!!!
+
+"
+text = " 
+Long ago a FAT brit 
+named Rupert Kringleton
+lived in a bad 
+orphanage 
+in a bad 
+neighborhood.  
+
+He decided to buy 
+his orphanage
+and save all the 
+children.
+
+But the only way 
+to make money
+was to commit crimes.
+
+Play our truly 
+tragic game.
+
+WASD to move, 
+click to punch,
+[E] key to interact,
+mouse to look around
+
+Collect enough cash
+to buy your freedom!!!
+
+"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "play"
+anims/RESET = SubResource( 4 )
+anims/play = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
